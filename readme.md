@@ -2,22 +2,22 @@ This project was generated in CSCI 585 class at USC, where we recorded the 13 co
 
 To show there coordinates, I set these coordinates in a .kml file, which can display the coordinates integrating the real map. Placemarks like below. And I run .kml with Google Earth Pro.(/placemarks/code.kml)
 
-![placemarks](.\placemarks\placemarks.png)
+![placemarks](./placemarks/placemarks.png)
 
 
 
 To compute the convex hull and  the nearest neighbor line, I averaged PostgreSQL, using the create-table commands and queries commands.(Code can be seen on /placemarks/queries.sql)
 Then, I showed the results through writing kml code and running on Google Earth Pro, like below.
 
-![convexHull](.\placemarks\convexHull.png)
+![convexHull](./placemarks/convexHull.png)
 
-![nearestNeighborLine](./placemarks\nearestNeighborLine.png)
+![nearestNeighborLine](./placemarks/nearestNeighborLine.png)
 
 
 
 In Addition, I used Javascript to build a .html file to show these 13 coordinates on browser, like below. (/placemarks/placemarks.html)
 
-![htmlGraph](.\placemarks\htmlGraph.png)
+![htmlGraph](./placemarks/htmlGraph.png)
 
 
 
