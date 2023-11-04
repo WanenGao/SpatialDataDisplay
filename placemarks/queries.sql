@@ -1,0 +1,67 @@
+-- convex hull
+CREATE TABLE global_points2(
+	id 	SERIAL PRIMARY KEY,
+	name VARCHAR(64),
+	location GEOMETRY(POINT, 4326)
+);
+
+insert points using geographical coordinates
+INSERT INTO global_points2 (name, location) VALUES
+('Cinematic', ST_SetSRID(ST_MakePoint(-118.28626672748317, 34.02365107558111), 4326)),
+('Dornsife', ST_SetSRID(ST_MakePoint(-118.29069880153854, 34.02243670353514), 4326)),
+('GFS', ST_SetSRID(ST_MakePoint(-118.28796776190018, 34.02105554603762), 4326)),
+('Fubon', ST_SetSRID(ST_MakePoint(-118.28521610699013, 34.025180127228076), 4326)),
+('Patsy', ST_SetSRID(ST_MakePoint(-118.28519694518138, 34.02029206979463), 4326)),
+('Epstein', ST_SetSRID(ST_MakePoint(-118.28900260437345, 34.02065307303498), 4326)),
+('Stout', ST_SetSRID(ST_MakePoint(-118.28471456665386, 34.02476515624116), 4326)),
+('Starbucks', ST_SetSRID(ST_MakePoint(-118.28257357712675, 34.02131889484275), 4326)),
+('Ronald', ST_SetSRID(ST_MakePoint(-118.28622825454761, 34.020163198033366), 4326)),
+('Hoose', ST_SetSRID(ST_MakePoint(-118.28669738966812, 34.01889526754061), 4326)),
+('Leavey', ST_SetSRID(ST_MakePoint(-118.28311705972838, 34.02145577132153), 4326)),
+('Doheny', ST_SetSRID(ST_MakePoint(-118.28398173685957, 34.020270444484446), 4326)),
+('Home', ST_SetSRID(ST_MakePoint(-118.2968670646799, 34.019828034808846), 4326));
+
+--get the convex hull
+SELECT ST_AsText(ST_ConvexHull(ST_Collect(location)))
+FROM global_points2;
+
+
+
+
+
+-- nearest neighbor line
+CREATE TABLE locations (
+    name TEXT PRIMARY KEY,
+    geom GEOMETRY(Point, 4326)
+);
+
+-- Insert points
+INSERT INTO locations(name, geom) VALUES
+('Cinematic', ST_SetSRID(ST_MakePoint(-118.28626672748317, 34.02365107558111), 4326)),
+('Dornsife', ST_SetSRID(ST_MakePoint(-118.29069880153854, 34.02243670353514), 4326)),
+('GFS', ST_SetSRID(ST_MakePoint(-118.28796776190018, 34.02105554603762), 4326)),
+('Fubon', ST_SetSRID(ST_MakePoint(-118.28521610699013, 34.025180127228076), 4326)),
+('Patsy', ST_SetSRID(ST_MakePoint(-118.28519694518138, 34.02029206979463), 4326)),
+('Epstein', ST_SetSRID(ST_MakePoint(-118.28900260437345, 34.02065307303498), 4326)),
+('Stout', ST_SetSRID(ST_MakePoint(-118.28471456665386, 34.02476515624116), 4326)),
+('Starbucks', ST_SetSRID(ST_MakePoint(-118.28257357712675, 34.02131889484275), 4326)),
+('Ronald', ST_SetSRID(ST_MakePoint(-118.28622825454761, 34.020163198033366), 4326)),
+('Hoose', ST_SetSRID(ST_MakePoint(-118.28669738966812, 34.01889526754061), 4326)),
+('Leavey', ST_SetSRID(ST_MakePoint(-118.28311705972838, 34.02145577132153), 4326)),
+('Doheny', ST_SetSRID(ST_MakePoint(-118.28398173685957, 34.020270444484446), 4326)),
+('Home', ST_SetSRID(ST_MakePoint(-118.2968670646799, 34.019828034808846), 4326));
+
+WITH home AS (
+    SELECT geom FROM locations WHERE name = 'Home'
+)
+SELECT name,
+ST_X(l.geom) as longitude,
+ST_Y(l.geom) as latitude,
+ST_Distance(l.geom, h.geom) as distance
+	   
+FROM locations l, home h
+WHERE l.name != 'Home'
+ORDER BY distance ASC
+LIMIT 4;
+
+

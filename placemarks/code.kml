@@ -1,0 +1,210 @@
+<kml xmlns="http://earth.google.com/kml/2.0">
+<Document>
+<Style id="z1">
+<IconStyle>
+<Icon>
+<href>http://www.google.com/intl/en_us/mapfiles/ms/micons/blue-dot.png</href>
+</Icon>
+</IconStyle>
+</Style>
+
+<Folder>
+<name>department buildings</name>
+<Placemark>
+<name>Cinematic</name>
+<styleUrl>#z1</styleUrl>
+<Point>
+<coordinates>-118.28626672748317,34.02365107558111</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>Dornsife</name>
+<styleUrl>#z1</styleUrl>
+<Point>
+<coordinates>-118.29069880153854,34.02243670353514</coordinates>
+</Point>
+</Placemark>
+
+<Placemark>
+<name>GFS</name>
+<styleUrl>#z1</styleUrl>
+<Point>
+<coordinates>-118.28796776190018,34.02105554603762</coordinates>
+</Point>
+</Placemark>
+</Folder>
+
+<Folder>
+<name>waterworks</name>
+<Placemark>
+<name>Fubon</name>
+<styleUrl>#z1</styleUrl>
+<Point>
+<coordinates>-118.28521610699013,34.025180127228076</coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Patsy</name>
+<styleUrl>#z1</styleUrl>
+<Point>
+<coordinates>-118.28519694518138,34.02029206979463</coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Epstein</name>
+<styleUrl>#z1</styleUrl>
+<Point>
+<coordinates>-118.28900260437345,34.02065307303498</coordinates>
+</Point>
+</Placemark>
+</Folder>
+
+<Folder>
+<name>eateries</name>
+<Placemark>
+<name>Stout </name>
+<styleUrl>#z1</styleUrl>
+<Point>
+<coordinates>-118.28471456665386,34.02476515624116</coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Starbucks </name>
+<styleUrl>#z1</styleUrl>
+<Point>
+<coordinates>-118.28257357712675,34.02131889484275</coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Ronald</name>
+<styleUrl>#z1</styleUrl>
+<Point>
+<coordinates>-118.28622825454761,34.020163198033366</coordinates>
+</Point>
+</Placemark>
+</Folder>
+
+<Folder>
+<name>libraries</name>
+<Placemark>
+<name>Hoose</name>
+<styleUrl>#z1</styleUrl>
+<Point>
+<coordinates>-118.28669738966812,34.01889526754061</coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Leavey</name>
+<styleUrl>#z1</styleUrl>
+<Point>
+<coordinates>-118.28311705972838,34.02145577132153</coordinates>
+</Point>
+</Placemark>
+<Placemark>
+<name>Doheny</name>
+<styleUrl>#z1</styleUrl>
+<Point>
+<coordinates>-118.28398173685957,34.020270444484446</coordinates>
+</Point>
+</Placemark>
+</Folder>
+
+<Placemark>
+<name>Home</name>
+<styleUrl>#z1</styleUrl>
+<Point>
+<coordinates>-118.2968670646799,34.019828034808846</coordinates>
+</Point>
+</Placemark>
+
+
+
+<Placemark>
+  <name>convex hull</name>
+  <Style>
+    <LineStyle>
+      <color>ff0000ff</color> <!-- 线条颜色为蓝色 -->
+      <width>4</width> <!-- 线条宽度为2 -->
+    </LineStyle>
+    <PolyStyle>
+      <color>400000ff</color> <!-- 多边形填充颜色为半透明蓝色 -->
+    </PolyStyle>
+  </Style>
+  <Polygon>
+    <extrude>1</extrude>
+    <altitudeMode>relativeToGround</altitudeMode>
+    <outerBoundaryIs>
+      <LinearRing>
+        <coordinates>
+          -118.28669738966812,34.01889526754061,0
+          -118.2968670646799,34.019828034808846,0
+          -118.28521610699013,34.025180127228076,0
+          -118.28471456665386,34.02476515624116,0
+          -118.28257357712675,34.02131889484275,0
+          -118.28398173685957,34.020270444484446,0
+          -118.28669738966812,34.01889526754061,0 
+        </coordinates>
+      </LinearRing>
+    </outerBoundaryIs>
+  </Polygon>
+</Placemark>
+
+<Style id="lineStyle">
+        <LineStyle>
+            <color>dd3400dd</color>
+            <width>4</width>
+        </LineStyle>
+    </Style>
+    
+    <!-- Home to Dornsife -->
+    <Placemark>
+        <name>Home to Dornsife</name>
+        <styleUrl>#lineStyle</styleUrl>
+        <LineString>
+            <coordinates>
+                -118.2968670646799,34.019828034808846
+                -118.29069880153854,34.02243670353514
+            </coordinates>
+        </LineString>
+    </Placemark>
+    
+    <!-- Home to Epstein -->
+    <Placemark>
+        <name>Home to Epstein</name>
+        <styleUrl>#lineStyle</styleUrl>
+        <LineString>
+            <coordinates>
+                -118.2968670646799,34.019828034808846
+                -118.28900260437345,34.02065307303498
+            </coordinates>
+        </LineString>
+    </Placemark>
+    
+    <!-- Home to GFS -->
+    <Placemark>
+        <name>Home to GFS</name>
+        <styleUrl>#lineStyle</styleUrl>
+        <LineString>
+            <coordinates>
+                -118.2968670646799,34.019828034808846
+                -118.28796776190018,34.02105554603762
+            </coordinates>
+        </LineString>
+    </Placemark>
+    
+    <!-- Home to Hoose -->
+    <Placemark>
+        <name>Home to Hoose</name>
+        <styleUrl>#lineStyle</styleUrl>
+        <LineString>
+            <coordinates>
+                -118.2968670646799,34.019828034808846
+                -118.28669738966812,34.01889526754061
+            </coordinates>
+        </LineString>
+    </Placemark>
+
+
+</Document>
+</kml>
